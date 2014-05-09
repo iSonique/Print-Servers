@@ -30,4 +30,19 @@ usermod -aG lpadmin root
 service cups start
 service avahi-daemon start
 
+service cups stop
+echo "Downloading Cups config file"
+rm /etc/cups/cupsd.conf
+wget -O /etc/cups/cupsd.conf https://raw.githubusercontent.com/GLOS-UK/Print-Servers/master/cupsd.conf
 
+service cups start
+mkdir /opt/airprint
+wget -O /opt/airprint airprint-gen.py --no-check-certificate https://raw.github.com.com/tjfontaine/airprint-genertae/master/airprint-generate.py
+chmod 755 /opt/airprint/airprint-gen.py
+
+echo "#########################"
+echo "Please now visit https:///locahost:631 on your pi or https://<PI IP ADDRESS>:631"
+echo "Please have your printer connected and use the menus to add a printer to the system"
+echo "Once you have added your printer please run ./setup2.sh"
+echo "#########################"
+exit 1
