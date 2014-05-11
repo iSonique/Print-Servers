@@ -1,9 +1,0 @@
-README
-cupsconnection.c
-cupsipp.c
-cupsmodule.c
-cupsppd.c
-pip-egg-info/pycups.egg-info/PKG-INFO
-pip-egg-info/pycups.egg-info/SOURCES.txt
-pip-egg-info/pycups.egg-info/dependency_links.txt
-pip-egg-info/pycups.egg-info/top_level.txt
