@@ -10,8 +10,8 @@ echo "#######################################"
 echo "##Updating package lists and packages##"
 echo "#######################################"
 
-apt-get update >&-
-apt-get -y upgrade >&-
+apt-get update 
+apt-get -y upgrade
 echo "#########################"
 echo ""
 echo "Updated existing packages"
@@ -35,9 +35,9 @@ update-rc.d gcloudprint defaults >&-
 
 usermod -aG lpadmin pi
 usermod -aG lpadmin root
-service cups start
-service avahi-daemon start
-service cups stop
+service cups start >&-
+service avahi-daemon start >&-
+service cups stop >&-
 echo "Downloading Cups config file"
 if [[ -f /etc/cups/cupsd.conf ]]; then
 	rm /etc/cups/cupsd.conf
