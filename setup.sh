@@ -1,12 +1,26 @@
 #! /bin/bash
 
-echo "This script must be run as root to setup AirPrint and CloudPrint"
+if [[ $EUID -ne 0 ]]; then
+	echo "################################################################"
+	echo "This script must be run as root to setup AirPrint and CloudPrint"
+	echo "################################################################"
+	exit 1
+fi
+echo "#######################################"
+echo "##Updating package lists and packages##"
+echo "#######################################"
 
-apt-get update
+#apt-get update
+clear
+echo "######################"
 echo "Updated packages lists"
+echo "######################"
 
 apt-get -y upgrade
+clear
+echo "#########################"
 echo "Updated existing packages"
+echo "#########################"
 
 echo "Installing base packages"
 echo "This may take sometime"
